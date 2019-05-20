@@ -178,7 +178,7 @@ public class Reader implements KeyListener{
 				// https://stackoverflow.com/questions/53340128/how-to-perform-a-post-request-using-json-file-as-body
 			}
 		});
-		btnJsonTest.setBounds(30, 311, 94, 27);
+		btnJsonTest.setBounds(30, 311, 106, 27);
 		btnJsonTest.setText("Get Students");
 		
 		Button btnPostRoll = new Button(shell, SWT.NONE);
@@ -186,8 +186,8 @@ public class Reader implements KeyListener{
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					//String url = "http://107.21.194.196:3000/echo_post";
-					String url = "http://localhost:3000/echo_post";
+					String url = "http://107.21.194.196:3000/echo_post";
+					//String url = "http://localhost:3000/echo_post";
 					Map<String, String> map = new HashMap<>();
 					map.put("name", "jon doe");
 					map.put("age", "22");
@@ -195,7 +195,8 @@ public class Reader implements KeyListener{
 					JSONObject jo = new JSONObject(map); 
 					System.out.println(jo.toString());
 					//HttpMethods.sendPost(url, "", jo.toString());
-					HttpMethods.sendPostHttpClient(url, jo.toString());
+					String res = HttpMethods.sendPostHttpClient(url, jo.toString());
+					System.out.println(res);
 				} catch (Exception error) {
 					// TODO Auto-generated catch block
 					error.printStackTrace();

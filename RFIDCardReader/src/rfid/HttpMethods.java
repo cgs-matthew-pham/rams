@@ -102,7 +102,7 @@ public class HttpMethods {
 	}
 	
 
-	public static void sendPostHttpClient(String url, String json) 
+	public static String sendPostHttpClient(String url, String json) 
 			  throws ClientProtocolException, IOException, Exception {
 			    CloseableHttpClient client = HttpClients.createDefault();
 			    HttpPost httpPost = new HttpPost(url);
@@ -120,7 +120,20 @@ public class HttpMethods {
 			    	throw new Exception("Non 200 status code.");
 			    }
 			    
-			    client.close();
+			    // https://www.mkyong.com/java/apache-httpclient-examples/
+			    
+			    BufferedReader rd = new BufferedReader(
+				        new InputStreamReader(response.getEntity().getContent()));
+
+				StringBuffer result = new StringBuffer();
+				String line = "";
+				while ((line = rd.readLine()) != null) {
+					result.append(line);
+				}
+				
+				client.close();
+			    
+			    return result.toString();
 			}
 			
 	
