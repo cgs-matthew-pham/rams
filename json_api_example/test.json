@@ -1,0 +1,22 @@
+[
+{
+"StudentID": "01",
+"Name": "aaa",
+"RFID": "101"
+},
+{
+"StudentID": "02",
+"Name": "aab",
+"RFID": "102"
+},
+{
+"StudentID": "03",
+"Name": "aac",
+"RFID": "103"
+},
+{
+"StudentID": "04",
+"Name": "aad",
+"RFID": "104"
+}
+]
